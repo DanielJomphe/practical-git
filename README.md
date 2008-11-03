@@ -639,7 +639,7 @@ The extra work is worth the effort, because with this configuration:
 * *My* changes will be easily identifiable in *My* named branch
 * *I* can easily get updates from the official repository
 * Any updates *I*'ve pulled into stable and edge are automatically pushed up to *my* fork on the server
-* The simple ‘git push' command will push up changes for all local branches that have a matching branch on the remote
+* The simple 'git push' command will push up changes for all local branches that have a matching branch on the remote
 * If *I* make it a point to pull in updates to my local stable and edge but not work directly on them, my fork will match up with the official repository
 So what is the benefit of all this to our team's projects?
 * The easier it is for *me* to pull in updates, the more likely it will be that the pull request will be for code that merges easily with the latest releases
