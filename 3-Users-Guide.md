@@ -472,23 +472,26 @@ The advantages of this set of practices are many:
 
 * Everyone works within their own repository
 * Everyone works on their own schedule
-* There's no process waiting to be completed that blocks *me* from moving on to whatever *I* need/want to do next
-* *I'm* not forcing anyone to drop what they're doing right now to handle *my* pull requests
-Moreover:
-* Each repository is on an equal footing
-* In particular, we would like every fork to have the same stable branch, so that if the official repository should ever be lost, there would be plenty of redundant backups
-* We also want it to be easy for each developer to pull in changes from the official repository
-* Finally, it's a bad idea in general to work on the stable branch; experienced git users typically work on separate development branches and then merge those branches into stable when they're done
-The extra work is worth the effort, because with this configuration:
-* *My* changes will be easily identifiable in *My* named branch
-* *I* can easily get updates from the official repository
-* Any updates *I*'ve pulled into stable and edge are automatically pushed up to *my* fork on the server
-* The simple 'git push' command will push up changes for all local branches that have a matching branch on the remote
-* If *I* make it a point to pull in updates to my local stable and edge but not work directly on them, my fork will match up with the official repository
-So what is the benefit of all this to our team's projects?
-* The easier it is for *me* to pull in updates, the more likely it will be that the pull request will be for code that merges easily with the latest releases
-* *I* can tell if someone is pulling updates by looking at their stable and edge branches and seeing if they match up with the latest branches on the official repository
-* By getting *myself* in the habit of working on branches, the team is going to get better, more organized code contributions
+    * There's no process waiting to be completed that blocks *me* from moving on to whatever *I* need/want to do next
+    * *I'm* not forcing anyone to drop what they're doing right now to handle *my* pull requests
+
+* Moreover:
+    * Each repository is on an equal footing
+        * In particular, we would like every fork to have the same stable branch, so that if the official repository should ever be lost, there would be plenty of redundant backups
+    * We also want it to be easy for each developer to pull in changes from the official repository
+    * Finally, it's a bad idea in general to work on the stable branch; experienced git users typically work on separate development branches and then merge those branches into stable when they're done
+
+* The extra work is worth the effort, because with this configuration:
+    * *My* changes will be easily identifiable in *My* named branch
+    * *I* can easily get updates from the official repository
+    * Any updates *I*'ve pulled into stable and edge are automatically pushed up to *my* fork on the server
+    * The simple 'git push' command will push up changes for all local branches that have a matching branch on the remote
+    * If *I* make it a point to pull in updates to my local stable and edge but not work directly on them, my fork will match up with the official repository
+
+* So what is the benefit of all this to our team's projects?
+    * The easier it is for *me* to pull in updates, the more likely it will be that the pull request will be for code that merges easily with the latest releases
+    * *I* can tell if someone is pulling updates by looking at their stable and edge branches and seeing if they match up with the latest branches on the official repository
+    * By getting *myself* in the habit of working on branches, the team is going to get better, more organized code contributions
 
 # References
 
