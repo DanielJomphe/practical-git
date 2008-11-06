@@ -109,7 +109,7 @@ Note that we don't need to explicitly track the OFFICIAL stable branch; this is 
     **Make a topic branch for each future feature pushed to the official repository.**
     Try to give the topic branch a name that properly synthesizes the nature of the change.
 
-* John Doe: Hey Boss, I'll work on *<topic1>* and *<topic2>*!
+* John Doe: Hey Boss, I'll work on *topic-1* and *topic-2*!
 * Boss: Fine, go ahead!
 
 ### Creating a local topic branch
@@ -205,7 +205,7 @@ John sends his public RSA key to his sysadmin, and asks him to create a sharing 
 
 ## Working on topic branches
 
-* John: Let's work on *<topic1>*!
+* John: Let's work on *topic-1*!
 
 ### Making changes on a local topic branch
 
@@ -349,13 +349,13 @@ Seeing *topic-1* is now feature-complete, John puts the finishing touches to the
                 topic-1'----------> jd/topic-1' |
                 topic-2 ----------> jd/topic-2  |
 
-* John: Boss, *<topic1>* is done!
+* John: Boss, *topic-1* is done!
 * Boss: Great, John! Let's have a look at it! By the way, did you need Suzy's help, finally?
 * John: What for!?
 
 ## Having a look at someone else's branch
 
-Boss pulls *<topic1>* on his BOSS-LOCAL from JD-FORK, and takes a look at it...
+Boss pulls *topic-1* on his BOSS-LOCAL from JD-FORK, and takes a look at it...
 
     1$  git stash save my-actual-work
     2$  git pull
@@ -378,11 +378,11 @@ Boss pulls *<topic1>* on his BOSS-LOCAL from JD-FORK, and takes a look at it...
 
 ## Pulling a topic branch on the official repository
 
-* Boss: Let's edge John's *<topic1>* branch on OFFICIAL!
+* Boss: Let's edge John's *topic-1* branch on OFFICIAL!
 
-Boss logs on OFFICIAL, pulls *<topic1>* from JD-FORK, and waits for Hudson:<project>:edge to tell him all tests have passed. 
+Boss logs on OFFICIAL, pulls *topic-1* from JD-FORK, and waits for Hudson:<project>:edge to tell him all tests have passed. 
 
-...All tests pass. Boss commits *<topic1>* to edge.
+...All tests pass. Boss commits *topic-1* to edge.
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -395,7 +395,7 @@ Boss logs on OFFICIAL, pulls *<topic1>* from JD-FORK, and waits for Hudson:<proj
 
 ## Rinsing and repeating
 
-Meanwhile, John finishes his work on *<topic2>*...
+Meanwhile, John finishes his work on *topic-2*...
 
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
@@ -421,9 +421,9 @@ And then:
                        --------->               |
                topic-2'--------->   jd/topic-2' |
 
-TODO:If the remote branch doesn't get removed like I showed in this graph (I'm yet to test this), try [this](http://github.com/guides/remove-a-remote-branch]) and please update this section according to the truth.
+TODO:If the remote branch doesn't get removed like I showed in this graph (I'm yet to test this), try [this](http://github.com/guides/remove-a-remote-branch) and please update this section according to the truth.
 
-Then Boss takes a look at *<topic2>*; since it looks good to him and Hudson:<project>:edge is happy with it, Boss commits *<topic2>* on OFFICIAL's edge.
+Then Boss takes a look at *topic-2*; since it looks good to him and Hudson:<project>:edge is happy with it, Boss commits *topic-2* on OFFICIAL's edge.
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -452,7 +452,7 @@ Boss commits and tags this new release.
 
 ## Rinsing and repeating
 
-Some time later, John starts work on *topic3*...
+Some time later, John starts work on *topic-3*...
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -492,14 +492,14 @@ So what is the benefit of all this to our team's projects?
 
 # References
 
-* *General*
+* **General**
     * [Git-SCM](http://www.git-scm.com) - Download, Community Book, Tutorials, Reference
     * [GitHub Guides](http://github.com/guides/home)
 
-* *Cheat Sheets*
+* **Cheat Sheets**
     * [Git Cheat Sheet](http://zrusin.blogspot.com/2007/09/git-cheat-sheet.html) - see this page's attachments for a cleanly resized version
 
-* *Tutorials*
+* **Tutorials**
     * [Official - Tutorial](http://www.kernel.org/pub/software/scm/git/docs/gittutorial.html)
     * [Official - Git for SVN Users](http://git.or.cz/course/svn.html)
     * [Official - Everyday Git with 20 commands](http://www.kernel.org/pub/software/scm/git/docs/everyday.html)
@@ -507,27 +507,27 @@ So what is the benefit of all this to our team's projects?
     * [A Tour of Git - The Basics](http://cworth.org/hgbook-git/tour)
     * [An introduction to git-svn for SVN deserters](http://utsl.gen.nz/talks/git-svn/intro.html)
 
-* *Links*
+* **Links**
     * [Git Resources](https://37s.backpackit.com/pub/1465067)
     * [Git-SCM's Documentation Links](http://www.git-scm.com)
 
-* *Tutorials - More advanced stuff*
+* **Tutorials - More advanced stuff**
     * [Git Awesomeness - Git Rebase --interactive](http://blog.madism.org/index.php/2007/09/09/138-git-awsome-ness-git-rebase-interactive)
     * [The Thing About Git](http://tomayko.com/writings/the-thing-about-git)
     * [Official - Git How To](http://www.kernel.org/pub/software/scm/git/docs/howto-index.html) - Advanced stuff
 
-* *Reference*
+* **Reference**
     * [Official - Man Pages](http://www.kernel.org/pub/software/scm/git/docs/)
     * [Official - FAQ](http://git.or.cz/gitwiki/GitFaq)
     * [Git for The Confused](http://www.gelato.unsw.edu.au/archives/git/0512/13748.html)
     * [Git-SCM's Documentation Links](http://www.git-scm.com)
 
-* *Screencasts* - A great, quick way to understand Git
+* **Screencasts** - A great, quick way to understand Git
     * [Git Casts](http://gitcasts.com/)
     * Community Book (through Git-SCM site link upwards) - in HTML version only
     * [Peepcode's Git Screencast](http://peepcode.com/products/git) (Costs 9$)
 
-* *Deep Understanding / Books*
+* **Deep Understanding / Books**
     * [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/) - small
     * [Git From Bottom Up](http://www.newartisans.com/blog_assets/git.from.bottom.up.pdf) (PDF) - Useful, deep understanding coverage
     * Git From Bottom Up (PDF with my yellow highlightings) - see this page's attachments to download it
@@ -535,19 +535,17 @@ So what is the benefit of all this to our team's projects?
     * [Git-SCM's Community Book](http://www.git-scm.com) - Always up-to-date; Wide coverage
     * [Peepcode's Git Internals Book](http://peepcode.com/products/git-internals-pdf) (Costs 9$) - Complementary; Wide coverage
 
-* *Workflow*
+* **Workflow**
     * [Our Git Deployment Workflow](http://www.brynary.com/2008/8/3/our-git-deployment-workflow)
 
-* *Hosting*
+* **Hosting**
     * [GitHub](http://www.github.com) - Commercial Web Front; Free only for Public-Small; Highly social site; Very useful; Pleasing to use
     * [Gitorious](http://www.gitorious.org) - Open Source Web Front; Free hosting
     * [Repo.or.cz](http://repo.or.cz) - Git Web Front - Free hosting
 
-* *Java*
-    * JGit - The most complete implementation of Git in other languages.
+* **Java**
+    * JGit - The most complete implementation of Git in any other language (Java).
     * [Maven-enabled project hosting with GitHub](http://www.jroller.com/mrdon/entry/maven_enabled_project_hosting_with)
 
-* *Best Practices*
+* **Best Practices**
     * [Setting up your repositorys for shared projects](http://blog.insoshi.com/2008/10/14/setting-up-your-git-repositories-for-open-source-projects-at-github/)
-
-TODO:See attachments
