@@ -1,6 +1,6 @@
 [Practical Git for People and Corporations](..) - Administrators Guide
 
-# Initial Setup
+# Working with Gitosis
 
 ## Setting up a gitosis server
 
@@ -10,7 +10,7 @@
     $ cd gitosis
 TODO:
     
-# Creating new repositories
+## Creating new repositories
 
 * Boss: Suzy Kue, please set up a repository for me and John Doe. It'll be called <project>!
 * Suzy: Boss, it'll be done in no time!
@@ -76,7 +76,7 @@ Now Suzy knows that in the future, after having added a new project to `gitosis-
     $ create<project>repo <host> <path>/<project>/boss
     $ create<project>repo <host> <path>/<project>/sk
 
-# Adding blessed users
+## Adding blessed users
 
 * Boss: Suzy, please set me up with `git push` permissions for <project>!
 * Suzy: Boss, it'll be done in no time!
