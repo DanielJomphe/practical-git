@@ -12,20 +12,20 @@ TODO:
     
 # Creating new repositories
 
-* Boss: Suzy Kue, please set up a repository for me and John Doe. It'll be called -project-!
+* Boss: Suzy Kue, please set up a repository for me and John Doe. It'll be called <project>!
 * Suzy: Boss, it'll be done in no time!
 
 Suzy **adds** the following lines to `gitosis-admin/gitosis.conf`:
 
-    [group -project-writers]
+    [group <project>writers]
     members = boss
-    writable = -path-/-project-
+    writable = <path>/<project>
 
-    [group -project-readers]
+    [group <project>readers]
     members = sk@linux3          # Suzy Kue
-    readonly = -path-/-project-
+    readonly = <path>/<project>
 
-    [repo -project-]             # -project- matches 'writable' and 'readonly'
+    [repo <project>]             # <project> matches 'writable' and 'readonly'
 	daemon = no
 	gitweb = yes
 	owner = Boss
@@ -33,17 +33,17 @@ Suzy **adds** the following lines to `gitosis-admin/gitosis.conf`:
 
 Then, she runs:
 
-    $ git commit -a -m "Added -project-"
+    $ git commit -a -m "Added <project>"
     $ git push
 
-The `git push` makes gitosis aware of -project-'s repository/ies.
+The `git push` makes gitosis aware of <project>'s repository/ies.
 
 Suzy then goes on to create the official repository:
 
-    $ mkdir -p -path-/-project-/official
-    $ cd       -path-/-project-/official
+    $ mkdir -p <path>/<project>/official
+    $ cd       <path>/<project>/official
     $ git init
-    $ git remote add origin git@-host-:-path-/-project-/official.git
+    $ git remote add origin git@<host>:<path>/<project>/official.git
     
     $ touch README   # add at least one file to be able to commit
 
@@ -51,14 +51,14 @@ Suzy then goes on to create the official repository:
     $ git commit -m "Created this repository"
     $ git push origin stable:refs/heads/stable
 
-The `git push` makes gitosis create the served repository. It will later be referred to git as `-project-/official.git`
+The `git push` makes gitosis create the served repository. It will later be referred to git as `<project>/official.git`
 
 At the same time, Suzy also creates *fork* repositories for each member:
 
-    $ mkdir -p -path-/-project-/boss
-    $ cd       -path-/-project-/boss
+    $ mkdir -p <path>/<project>/boss
+    $ cd       <path>/<project>/boss
     $ git init
-    $ git remote add origin git@-host-:-path-/-project-/boss.git
+    $ git remote add origin git@<host>:<path>/<project>/boss.git
     
     $ touch README   # add at least one file to be able to commit
 
@@ -66,35 +66,35 @@ At the same time, Suzy also creates *fork* repositories for each member:
     $ git commit -m "Created this repository"
     $ git push origin stable:refs/heads/stable
 
-Noticing this is becoming quite repetitive, Suzy writes herself the following [create-project-repo shell script](TODO:), and uses it to create the last *fork* repository:
+Noticing this is becoming quite repetitive, Suzy writes herself the following [create<project>repo shell script](TODO:), and uses it to create the last *fork* repository:
 
-    $ create-project-repo -host- -path-/-project-/sk
+    $ create<project>repo <host> <path>/<project>/sk
 
 Now Suzy knows that in the future, after having added a new project to `gitosis-admin/gitosis.conf`, the following shell command is all she will need to use to create a few repositories:
 
-    $ create-project-repo -host- -path-/-project-/official
-    $ create-project-repo -host- -path-/-project-/boss
-    $ create-project-repo -host- -path-/-project-/sk
+    $ create<project>repo <host> <path>/<project>/official
+    $ create<project>repo <host> <path>/<project>/boss
+    $ create<project>repo <host> <path>/<project>/sk
 
 # Adding blessed users
 
-* Boss: Suzy, please set me up with `git push` permissions for -project-!
+* Boss: Suzy, please set me up with `git push` permissions for <project>!
 * Suzy: Boss, it'll be done in no time!
 
-Boss is going to be the only one who has write (push) permissions on -project-.git.
+Boss is going to be the only one who has write (push) permissions on <project>.git.
 
 Suzy gathers Boss's **public** SSH key and gives it to gitosis:
 
     $ mv id_rsa.pub gitosis-admin/keydir/boss.pub
 
-Then, Suzy adds the following line to the `[group -project-]` section of `gitosis-admin/gitosis.conf`:
+Then, Suzy adds the following line to the `[group <project>]` section of `gitosis-admin/gitosis.conf`:
 
     members = boss
 
 Finally, commit and push: 
 
     $ git add keydir/alice.pub keydir/bob.pub
-    $ git commit -m "Granted Alice and Bob commit rights to -project-"
+    $ git commit -m "Granted Alice and Bob commit rights to <project>"
     $ git push
 
 # References

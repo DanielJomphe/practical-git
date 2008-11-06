@@ -2,7 +2,7 @@
 
 # Setting up Git
 
-* Windows - [Download msysGit](http://code.google.com/p/msysgit/] and install it:
+* Windows - [Download msysGit](http://code.google.com/p/msysgit/) and install it:
     * Do not pick the option to add all unix tools to your path (the red one)
     * Pick OpenSSH
 
@@ -10,7 +10,9 @@
 
 * Windows - In Windows' Explorer, right click on a folder where you would like a git-enabled shell and select *Git bash here*
 
-    ssh-keygen -C "john.doe@company.com" -t rsa
+Now, whatever you system may be, run this:
+  
+    $ ssh-keygen -C "john.doe@company.com" -t rsa
 
 * Use the default file name **id_rsa**.
 * **Make a backup copy of the generated keys**, which can be found in your home, under a `.ssh` directory.
@@ -25,7 +27,7 @@ This updates your `*~/.gitconfig` file:
     $ git config --global color.ui      auto
     $ git config --list
 
-For project-based configuration options, remove the *--global* argument. This will update your project's `-path-/-project-/.git/.gitconfig` file instead, and will be shared with the team. Note that project configuration options win over global configuration options.
+For project-based configuration options, remove the `--global` argument. This will update your project's `<path>/<project>/.git/.gitconfig` file instead, and will be shared with the team. Note that project configuration options win over global configuration options.
 
 # Git Worst Practices
 
@@ -37,7 +39,7 @@ Let's try to debunk bad Git habits here.
 # Project repository workflow
 
 * John Doe: Boss, I need to work on something!
-* Boss: John, you'll work on -project-!
+* Boss: John, you'll work on <project>!
 
 > Best practice:
     **An official repository for a project contains at least two branches: one stable, and one for staging purposes.**
@@ -51,7 +53,7 @@ Let's try to debunk bad Git habits here.
 
 ## Setting up a local repository
 
-* John Doe: Boss, I'm setting up for -project-!
+* John Doe: Boss, I'm setting up for <project>!
 
 ### Checking out from a repository
 
@@ -61,8 +63,8 @@ Let's try to debunk bad Git habits here.
 
 John runs one of the following options to checkout the project along with its history:
 
-    1$ git clone  git://-host-/-path-/-project-/official.git
-    1$ git clone http://-host-/-path-/-project-/official.git
+    1$ git clone  git://<host>/<path>/<project>/official.git
+    1$ git clone http://<host>/<path>/<project>/official.git
     1$ git clone (SSH: XXXX to be documented later)
 
 1- Checks out an initial local copy of the OFFICIAL repository.
@@ -75,7 +77,7 @@ John runs one of the following options to checkout the project along with its hi
 
 If John already had a public fork of this project, he would have done the same:
 
-    1$ git clone git://-host-/-path-/-project-/official.git
+    1$ git clone git://<host>/<path>/<project>/official.git
 
 1- Note that the Git URL for the clone references the OFFICIAL repository and **not** JD-FORK.
 
@@ -93,13 +95,13 @@ If John already had a public fork of this project, he would have done the same:
     Stick to this even if you forked the official repository into another public repository.
     This way, your working copy will always be the integration point of what's coming from the official repository, and it won't hinder your fork repository in perpetually benefiting from the official changes to the project, although it might not be clear to you now.
 
-    1$ cd -project-
+    1$ cd <project>
     2$ git branch --track edge origin/edge
 
 1- Gets inside the project's working tree to interact with git (and with the project, of course).  
 2- Sets up automatic tracking of the OFFICIAL edge branch, for future easy syncing.
 
-Note that we don't need to explicitly track the OFFICIAL stable branch; this is automatically, implicitly done when you *git clone*.
+Note that we don't need to explicitly track the OFFICIAL stable branch; this is automatically, implicitly done when you `git clone`.
 
 ## Setting up topic branches
 
@@ -107,7 +109,7 @@ Note that we don't need to explicitly track the OFFICIAL stable branch; this is 
     **Make a topic branch for each future feature pushed to the official repository.**
     Try to give the topic branch a name that properly synthesizes the nature of the change.
 
-* John Doe: Hey Boss, I'll work on *-topic1-* and *-topic2-*!
+* John Doe: Hey Boss, I'll work on *<topic1>* and *<topic2>*!
 * Boss: Fine, go ahead!
 
 ### Creating a local topic branch
@@ -115,12 +117,12 @@ Note that we don't need to explicitly track the OFFICIAL stable branch; this is 
 > Best practice:
     **format-branch-names-this-way** and, if they're shared, prefix their name with a parent directory whose name is the initials of the branch's author: **jd/topic-description**
 
-    1$ git branch   -topic- edge
-    2$ git checkout -topic-
+    1$ git branch   <topic> edge
+    2$ git checkout <topic>
 
 or, as a shortcut:
 
-    1+2$ git branch -b -topic- edge
+    1+2$ git branch -b <topic> edge
 
 1- Creates a local branch for *topic*, based off of edge.  
 2- Selects the local *topic* branch, to work on it.
@@ -135,7 +137,7 @@ or, as a shortcut:
 
 #### Setting up the branch name in shell prompt
 
-TODO:[Try it](http://github.com/guides/put-your-git-branch-name-in-your-shell-prompt) and if it works, change this text to reflect it :)
+TODO:[Try it](http://github.com/guides/put-your-git-branch-name-in-your-shell-prompt) and it works, document it :)
 
 ## Setting up a sharing repository
 
@@ -148,8 +150,8 @@ TODO:[Try it](http://github.com/guides/put-your-git-branch-name-in-your-shell-pr
 
 John sends his public RSA key to his sysadmin, and asks him to create a sharing repository for him.
 
-    1$ cd -path-/-project-
-    2$ git clone --bare git://-host-/-path-/-project-/official.git jd-fork.git
+    1$ cd <path>/<project>
+    2$ git clone --bare git://<host>/<path>/<project>/official.git jd-fork.git
 
 2- Makes a copy of OFFICIAL, without a working tree.
 
@@ -163,9 +165,9 @@ John sends his public RSA key to his sysadmin, and asks him to create a sharing 
 
 ### Setting up a remote branch in the fork repository
 
-    1$ git checkout   -topic-
-    2$ git remote add -topic- JOE@-host-:-path-/-project-/jd-fork.git
-    3$ git fetch      -topic-
+    1$ git checkout   <topic>
+    2$ git remote add <topic> JOE@<host>:<path>/<project>/jd-fork.git
+    3$ git fetch      <topic>
 
 1- Selects the local *topic* branch, to track the future changes.  
 2- Sets up a tracking reference of the local *topic* branch unto JD-FORK, for future easy syncing.  
@@ -181,7 +183,7 @@ John sends his public RSA key to his sysadmin, and asks him to create a sharing 
 
 ### Syncing a local topic branch to a fork repository
 
-    1$ git push -topic- JOE:refs/heads/-topic-
+    1$ git push <topic> JOE:refs/heads/<topic>
 
 1- Syncs up the local *topic* branch towards JD-FORK, effectively creating it on JD-FORK.
 
@@ -195,19 +197,19 @@ John sends his public RSA key to his sysadmin, and asks him to create a sharing 
 
 ### Making future branch syncs automatic
 
-    1$ git config branch.-topic-.remote            <john>
-    2$ git config branch.-topic-.merge  refs/heads/<john>
+    1$ git config branch.<topic>.remote            <john>
+    2$ git config branch.<topic>.merge  refs/heads/<john>
 
 1- Makes future `git push` commands automatically sync the topic branch to JD-FORK.  
 2- Makes future `git pull` commands automatically sync the topic branch from JD-FORK to JD-LOCAL.
 
 ## Working on topic branches
 
-* John: Let's work on *-topic1-*!
+* John: Let's work on *<topic1>*!
 
 ### Making changes on a local topic branch
 
-    1$ git checkout -topic-
+    1$ git checkout <topic>
 
 1- Selects the local branch *topic*, to track the related changes.
 
@@ -230,7 +232,7 @@ John sends his public RSA key to his sysadmin, and asks him to create a sharing 
 
 * John: Let's call this a day; time to go home!
 
-TODO:
+Run:
 
     1$ git commit -m "leaving home"
     2$ git push
@@ -251,7 +253,7 @@ JD-FORK's stable and edge branches are now in sync *with the state of OFFICIAL a
 
 * *Jack*: Yes! Now that John has left for home, it's time to make him pay for the last *public* humiliation he made me suffer!
 
-TODO:
+Run:
 
     $ #hack hack hack...
     $ git branch -d topic-1    # -d means "delete"
@@ -286,7 +288,7 @@ John then waits for the good moment to send an email to *super Suzy*, when the b
     $ git commit
     $ git push
 
-TODO:
+Results in:
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -305,7 +307,7 @@ Luckily  again for John, 5 minutes later, he receives an answer from Suzy, telli
     3$ git merge topic-1-sk
 
 1- John doesn't use "git pull" because he's not sure yet if he likes Suzy's patch; so he fetches it as *topic-1-sk*.  
-2- A quick diff makes sense.  
+2- A quick `diff` makes sense.  
 3- John likes Suzy's patch; therefore, he merges it into the current branch.
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
@@ -328,7 +330,7 @@ Now, what John doesn't know yet is that anyone may see that Suzy helped him with
 John is confident his changes should work fine.
 
     $ git commit
-    $ git push jd/topic-1 git://<ci-server>/<...>/-project--dev.git
+    $ git push jd/topic-1 git://<host>/<path>/<project>-ci-dev.git
 
 * John: Cool, tests pass!
 
@@ -347,20 +349,20 @@ Seeing *topic-1* is now feature-complete, John puts the finishing touches to the
                 topic-1'----------> jd/topic-1' |
                 topic-2 ----------> jd/topic-2  |
 
-* John: Boss, *-topic1-* is done!
+* John: Boss, *<topic1>* is done!
 * Boss: Great, John! Let's have a look at it! By the way, did you need Suzy's help, finally?
 * John: What for!?
 
 ## Having a look at someone else's branch
 
-Boss pulls *-topic1-* on his BOSS-LOCAL from JD-FORK, and takes a look at it...
+Boss pulls *<topic1>* on his BOSS-LOCAL from JD-FORK, and takes a look at it...
 
     1$  git stash save my-actual-work
     2$  git pull
     3$  git remote add jd git://<...>/jd-fork.git
-    4$  git checkout -b edge-topic-1 edge
+    4$  git checkout -b edge<topic>1 edge
     5$  git pull jd jd/topic-1
-    6$  git diff edge edge-topic-1
+    6$  git diff edge edge<topic>1
     7$  git branch
     8$  git checkout my-previous-branch
     9$  git stash list
@@ -376,11 +378,11 @@ Boss pulls *-topic1-* on his BOSS-LOCAL from JD-FORK, and takes a look at it...
 
 ## Pulling a topic branch on the official repository
 
-* Boss: Let's edge John's *-topic1-* branch on OFFICIAL!
+* Boss: Let's edge John's *<topic1>* branch on OFFICIAL!
 
-Boss logs on OFFICIAL, pulls *-topic1-* from JD-FORK, and waits for Hudson:-project-:edge to tell him all tests have passed. 
+Boss logs on OFFICIAL, pulls *<topic1>* from JD-FORK, and waits for Hudson:<project>:edge to tell him all tests have passed. 
 
-...All tests pass. Boss commits *-topic1-* to edge.
+...All tests pass. Boss commits *<topic1>* to edge.
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -393,7 +395,7 @@ Boss logs on OFFICIAL, pulls *-topic1-* from JD-FORK, and waits for Hudson:-proj
 
 ## Rinsing and repeating
 
-Meanwhile, John finishes his work on *-topic2-*...
+Meanwhile, John finishes his work on *<topic2>*...
 
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
@@ -407,7 +409,7 @@ Meanwhile, John finishes his work on *-topic2-*...
                          |          jd/topic-1' |
                topic-2'  |          jd/topic-2  |
 
-TODO:
+And then:
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -421,7 +423,7 @@ TODO:
 
 TODO:If the remote branch doesn't get removed like I showed in this graph (I'm yet to test this), try [this](http://github.com/guides/remove-a-remote-branch]) and please update this section according to the truth.
 
-Then Boss takes a look at *-topic2-*; since it looks good to him and Hudson:-project-:edge is happy with it, Boss commits *-topic2-* on OFFICIAL's edge.
+Then Boss takes a look at *<topic2>*; since it looks good to him and Hudson:<project>:edge is happy with it, Boss commits *<topic2>* on OFFICIAL's edge.
 
     JD-LOCAL             |        JD-FORK       |           OFFICIAL
                          |                      |
@@ -435,7 +437,7 @@ Then Boss takes a look at *-topic2-*; since it looks good to him and Hudson:-pro
 
  * Boss: Congrats Team, OFFICIAL's edge is stable, let's call this a release!
 
-Boss tries a merge of edge with stable on OFFICIAL, and waits for Hudson:-project-:*stable* to tell him all tests pass.
+Boss tries a merge of edge with stable on OFFICIAL, and waits for Hudson:<project>:*stable* to tell him all tests pass.
 
 Boss commits and tags this new release.
 
