@@ -1,3 +1,5 @@
+[Practical Git for People and Corporations](../../README.md)
+
 # Why use a Distributed VCS?
 
 What it really amounts to is *flexibility*.
