@@ -68,13 +68,13 @@ At the same time, Suzy also creates *fork* repositories for each member:
 
 Noticing this is becoming quite repetitive, Suzy writes herself the following [create<project>repo shell script](TODO:), and uses it to create the last *fork* repository:
 
-    $ create<project>repo <host> <path>/<project>/sk
+    $ create-project-repo <host> <path>/<project>/sk
 
 Now Suzy knows that in the future, after having added a new project to `gitosis-admin/gitosis.conf`, the following shell command is all she will need to use to create a few repositories:
 
-    $ create<project>repo <host> <path>/<project>/official
-    $ create<project>repo <host> <path>/<project>/boss
-    $ create<project>repo <host> <path>/<project>/sk
+    $ create-project-repo <host> <path>/<project>/official
+    $ create-project-repo <host> <path>/<project>/boss
+    $ create-project-repo <host> <path>/<project>/sk
 
 ## Adding blessed users
 
