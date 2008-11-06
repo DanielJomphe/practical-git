@@ -1,4 +1,4 @@
-[Practical Git for People and Corporations](README.md) - Introduction
+[Practical Git for People and Corporations](..) - Introduction
 
 # Why use a Distributed VCS?
 

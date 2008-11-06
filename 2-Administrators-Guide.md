@@ -1,4 +1,4 @@
-[Practical Git for People and Corporations](README.md) - Administrators Guide
+[Practical Git for People and Corporations](..) - Administrators Guide
 
 # Initial Setup
 
