@@ -1,5 +1,3 @@
-[Practical Git for People and Corporations](../../README.md) - [Table of Contents](../README.md) - Administrators Guide
-
 # Initial Setup
 
 ## Setting up a gitosis server

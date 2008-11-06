@@ -1,5 +1,3 @@
-# Practical Git for People and Corporations
+Click on one of the links higher to navigate this guide's pages.
 
-* [Introduction](contents/README.md)
-* [Administrators Guide](contents/admin/README.md)
-* [Users Guide](contents/users/README.md)    
+TODO:

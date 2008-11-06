@@ -1,5 +1,3 @@
-[Practical Git for People and Corporations](../../README.md) - Users Guide
-
 # Setting up Git
 
 * Windows - [Download msysGit](http://code.google.com/p/msysgit/] and install it:
